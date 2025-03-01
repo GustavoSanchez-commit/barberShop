@@ -1,0 +1,77 @@
+/* Global styles for Barbershop Scheduling App */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #f8f9fa;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Form styles */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+/* Button styles */
+.mat-mdc-raised-button.mat-primary {
+  background-color: #3f51b5;
+}
+
+/* Card styles */
+.mat-mdc-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-mdc-card-title {
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 16px !important;
+}
+
+/* Table styles */
+.mat-mdc-table {
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mat-mdc-header-cell {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-mdc-row:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .mat-mdc-card {
+    padding: 16px;
+  }
+}

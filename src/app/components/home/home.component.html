@@ -1,0 +1,39 @@
+<div class="home-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Premium Barbershop Experience</h1>
+      <p>Book your appointment today and experience the best haircut and grooming services</p>
+      <div class="hero-buttons">
+        <a mat-raised-button color="primary" routerLink="/appointments/new">Book Appointment</a>
+        <a mat-button routerLink="/appointments">View Appointments</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h2>Our Services</h2>
+    <div class="features-grid">
+      <mat-card *ngFor="let feature of features" class="feature-card">
+        <mat-icon class="feature-icon">{{feature.icon}}</mat-icon>
+        <mat-card-header>
+          <mat-card-title>{{feature.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{feature.description}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h2>About Our Barbershop</h2>
+    <p>
+      Welcome to our premium barbershop where we combine traditional barbering techniques with modern styles.
+      Our skilled barbers are dedicated to providing you with the best grooming experience.
+    </p>
+    <p>
+      We offer a wide range of services from classic haircuts to hot towel shaves and beard grooming.
+      Our comfortable environment and professional service will make you feel relaxed and satisfied.
+    </p>
+  </div>
+</div>
