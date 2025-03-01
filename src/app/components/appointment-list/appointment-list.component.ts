@@ -152,19 +152,19 @@ export class AppointmentListComponent implements OnInit {
     };
     
     this.appointmentService.updateAppointment(updatedAppointment).subscribe(() => {
-      this.snackBar.open(`Appointment status updated to ${newStatus}`, 'Close', { duration: 3000 });
+      this.snackBar.open(`Agendamento atulizado com ${newStatus}`, 'Fechar', { duration: 3000 });
       this.loadAppointments();
     });
   }
 
   deleteAppointment(id: number): void {
-    if (confirm('Are you sure you want to delete this appointment?')) {
+    if (confirm('Você tem certeza que vai deletar?')) {
       this.appointmentService.deleteAppointment(id).subscribe(success => {
         if (success) {
-          this.snackBar.open('Appointment deleted successfully', 'Close', { duration: 3000 });
+          this.snackBar.open('Agendamento Cancelado', 'Fechar', { duration: 3000 });
           this.loadAppointments();
         } else {
-          this.snackBar.open('Error deleting appointment', 'Close', { duration: 3000 });
+          this.snackBar.open('Erro ao deletar agendamento', 'Fechar', { duration: 3000 });
         }
       });
     }
