@@ -1,37 +1,37 @@
 <div class="list-container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Appointments</mat-card-title>
+      <mat-card-title>Agendamentos</mat-card-title>
     </mat-card-header>
     
     <mat-card-content>
       <div class="filters">
         <div class="search-filter">
           <mat-form-field appearance="outline">
-            <mat-label>Search</mat-label>
-            <input matInput [(ngModel)]="searchTerm" (keyup)="onSearch()" placeholder="Search by name, email, etc.">
+            <mat-label>Buscar</mat-label>
+            <input matInput [(ngModel)]="searchTerm" (keyup)="onSearch()" placeholder="Buscar por Nome, Email..">
             <button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm=''; onSearch()">
-              <mat-icon>close</mat-icon>
+              <mat-icon>Fechar</mat-icon>
             </button>
           </mat-form-field>
         </div>
         
         <div class="date-filter">
           <mat-form-field appearance="outline">
-            <mat-label>Filter by date</mat-label>
+            <mat-label>Filtrar por Data</mat-label>
             <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" (dateChange)="onDateChange()">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           
           <button mat-button *ngIf="selectedDate || searchTerm" (click)="clearFilters()">
-            Clear Filters
+            Limpar Filtro
           </button>
         </div>
         
         <div class="add-button">
           <a mat-raised-button color="primary" routerLink="/appointments/new">
-            <mat-icon>add</mat-icon> New Appointment
+            <mat-icon>add</mat-icon> Novo Agendamento
           </a>
         </div>
       </div>
@@ -40,19 +40,19 @@
         <table mat-table [dataSource]="filteredAppointments" class="mat-elevation-z2">
           <!-- Date Column -->
           <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <th mat-header-cell *matHeaderCellDef>Data</th>
             <td mat-cell *matCellDef="let appointment">{{ formatDate(appointment.date) }}</td>
           </ng-container>
           
           <!-- Time Column -->
           <ng-container matColumnDef="time">
-            <th mat-header-cell *matHeaderCellDef>Time</th>
+            <th mat-header-cell *matHeaderCellDef>Hora</th>
             <td mat-cell *matCellDef="let appointment">{{ appointment.startTime }} - {{ appointment.endTime }}</td>
           </ng-container>
           
           <!-- Customer Column -->
           <ng-container matColumnDef="customerName">
-            <th mat-header-cell *matHeaderCellDef>Customer</th>
+            <th mat-header-cell *matHeaderCellDef>Cliente</th>
             <td mat-cell *matCellDef="let appointment">
               <div>{{ appointment.customerName }}</div>
               <div class="secondary-text">{{ appointment.customerPhone }}</div>
@@ -61,7 +61,7 @@
           
           <!-- Service Column -->
           <ng-container matColumnDef="service">
-            <th mat-header-cell *matHeaderCellDef>Service</th>
+            <th mat-header-cell *matHeaderCellDef>Serviço</th>
             <td mat-cell *matCellDef="let appointment">
               <div>{{ appointment.service.name }}</div>
               <div class="secondary-text">${{ appointment.service.price }}</div>
@@ -70,7 +70,7 @@
           
           <!-- Barber Column -->
           <ng-container matColumnDef="barber">
-            <th mat-header-cell *matHeaderCellDef>Barber</th>
+            <th mat-header-cell *matHeaderCellDef>Barbeiro</th>
             <td mat-cell *matCellDef="let appointment">{{ appointment.barber.name }}</td>
           </ng-container>
           
@@ -86,7 +86,7 @@
           
           <!-- Actions Column -->
           <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
             <td mat-cell *matCellDef="let appointment">
               <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Actions">
                 <mat-icon>more_vert</mat-icon>
@@ -94,23 +94,23 @@
               <mat-menu #menu="matMenu">
                 <a mat-menu-item [routerLink]="['/appointments/edit', appointment.id]">
                   <mat-icon>edit</mat-icon>
-                  <span>Edit</span>
+                  <span>Editar</span>
                 </a>
                 <button mat-menu-item *ngIf="appointment.status !== 'completed'" (click)="updateStatus(appointment, 'completed')">
                   <mat-icon>check_circle</mat-icon>
-                  <span>Mark as Completed</span>
+                  <span>Marcar Agendamento</span>
                 </button>
                 <button mat-menu-item *ngIf="appointment.status !== 'cancelled'" (click)="updateStatus(appointment, 'cancelled')">
                   <mat-icon>cancel</mat-icon>
-                  <span>Cancel Appointment</span>
+                  <span>Cancelar Agendamento</span>
                 </button>
                 <button mat-menu-item *ngIf="appointment.status === 'cancelled'" (click)="updateStatus(appointment, 'scheduled')">
                   <mat-icon>restore</mat-icon>
-                  <span>Restore Appointment</span>
+                  <span>Restaurar Agendamento</span>
                 </button>
                 <button mat-menu-item (click)="deleteAppointment(appointment.id!)">
                   <mat-icon>delete</mat-icon>
-                  <span>Delete</span>
+                  <span>Deletar</span>
                 </button>
               </mat-menu>
             </td>
@@ -122,7 +122,7 @@
           <!-- Row shown when there is no matching data -->
           <tr class="mat-row" *matNoDataRow>
             <td class="mat-cell no-data" [attr.colspan]="displayedColumns.length">
-              No appointments found
+              Nenhum Agendamento
             </td>
           </tr>
         </table>

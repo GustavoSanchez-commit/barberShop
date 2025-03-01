@@ -8,10 +8,10 @@
       <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Your Name</mat-label>
-            <input matInput formControlName="customerName" placeholder="Enter your full name">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="customerName" placeholder="Nome">
             <mat-error *ngIf="appointmentForm.get('customerName')?.hasError('required')">
-              Name is required
+              O Nome é obrigatório
             </mat-error>
           </mat-form-field>
         </div>
@@ -19,85 +19,85 @@
         <div class="form-row two-columns">
           <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="customerEmail" placeholder="Enter your email" type="email">
+            <input matInput formControlName="customerEmail" placeholder="Digite seu e-mail" type="email">
             <mat-error *ngIf="appointmentForm.get('customerEmail')?.hasError('required')">
-              Email is required
+              O e-mail é obrigatório
             </mat-error>
             <mat-error *ngIf="appointmentForm.get('customerEmail')?.hasError('email')">
-              Please enter a valid email address
+              Por favor insira um endereço de e-mail válido
             </mat-error>
           </mat-form-field>
           
           <mat-form-field appearance="outline">
-            <mat-label>Phone Number</mat-label>
-            <input matInput formControlName="customerPhone" placeholder="Enter your phone number">
+            <mat-label>Telefone</mat-label>
+            <input matInput formControlName="customerPhone" placeholder="Digite seu número de telefone">
             <mat-error *ngIf="appointmentForm.get('customerPhone')?.hasError('required')">
-              Phone number is required
+              O número de telefone é obrigatório
             </mat-error>
           </mat-form-field>
         </div>
         
         <div class="form-row two-columns">
           <mat-form-field appearance="outline">
-            <mat-label>Select Barber</mat-label>
+            <mat-label>Selecione Barbeiro</mat-label>
             <mat-select formControlName="barberId">
               <mat-option *ngFor="let barber of barbers" [value]="barber.id">
                 {{ barber.name }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="appointmentForm.get('barberId')?.hasError('required')">
-              Please select a barber
+              Selecione um barbeiro
             </mat-error>
           </mat-form-field>
           
           <mat-form-field appearance="outline">
-            <mat-label>Select Service</mat-label>
+            <mat-label>Selecione o serviço</mat-label>
             <mat-select formControlName="serviceId">
               <mat-option *ngFor="let service of services" [value]="service.id">
                 {{ service.name }} - ${{ service.price }} ({{ service.durationMinutes }} min)
               </mat-option>
             </mat-select>
             <mat-error *ngIf="appointmentForm.get('serviceId')?.hasError('required')">
-              Please select a service
+              Selecione um serviço
             </mat-error>
           </mat-form-field>
         </div>
         
         <div class="form-row two-columns">
           <mat-form-field appearance="outline">
-            <mat-label>Appointment Date</mat-label>
+            <mat-label>Data da Agendamento</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="appointmentForm.get('date')?.hasError('required')">
-              Please select a date
+              Selecione uma data
             </mat-error>
           </mat-form-field>
           
           <mat-form-field appearance="outline">
-            <mat-label>Appointment Time</mat-label>
+            <mat-label>Hora do Agendamento</mat-label>
             <mat-select formControlName="startTime">
               <mat-option *ngFor="let timeSlot of availableTimeSlots" [value]="timeSlot">
                 {{ timeSlot }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="appointmentForm.get('startTime')?.hasError('required')">
-              Please select a time
+              Selecione um horário
             </mat-error>
           </mat-form-field>
         </div>
         
         <div class="form-row">
           <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Additional Notes</mat-label>
-            <textarea matInput formControlName="notes" placeholder="Any special requests or notes"></textarea>
+            <mat-label>Notas Adicionais</mat-label>
+            <textarea matInput formControlName="notes" placeholder="Quaisquer pedidos ou notas especiais"></textarea>
           </mat-form-field>
         </div>
         
         <div class="form-actions">
-          <button mat-button type="button" routerLink="/appointments">Cancel</button>
+          <button mat-button type="button" routerLink="/appointments">Cancelar</button>
           <button mat-raised-button color="primary" type="submit" [disabled]="appointmentForm.invalid">
-            {{ isEditMode ? 'Update Appointment' : 'Book Appointment' }}
+            {{ isEditMode ? 'Update Appointment' : 'Agendar' }}
           </button>
         </div>
       </form>

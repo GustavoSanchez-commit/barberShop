@@ -3,17 +3,17 @@
     <button mat-icon-button class="menu-button" aria-label="Menu button">
       <mat-icon>menu</mat-icon>
     </button>
-    <span class="app-title">Barbershop Scheduling</span>
+    <span class="app-title">Barbershop</span>
     <span class="toolbar-spacer"></span>
     <nav class="desktop-nav">
       <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
         <mat-icon>home</mat-icon> Home
       </a>
       <a mat-button routerLink="/appointments/new" routerLinkActive="active-link">
-        <mat-icon>event_available</mat-icon> Book Appointment
+        <mat-icon>event_available</mat-icon> Agendadar
       </a>
       <a mat-button routerLink="/appointments" routerLinkActive="active-link">
-        <mat-icon>list</mat-icon> Appointments
+        <mat-icon>list</mat-icon> Lista de Agendados
       </a>
     </nav>
   </mat-toolbar>
@@ -21,10 +21,4 @@
   <div class="content-container">
     <router-outlet></router-outlet>
   </div>
-
-  <footer class="app-footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Barbershop Scheduling App. All rights reserved.</p>
-    </div>
-  </footer>
 </div>

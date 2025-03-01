@@ -21,23 +21,23 @@ import { MatIconModule } from '@angular/material/icon';
 export class HomeComponent {
   features = [
     {
-      title: 'Easy Scheduling',
-      description: 'Book your appointment with just a few clicks',
+      title: 'Agendamento fácil',
+      description: 'Agende sua consulta com apenas alguns cliques',
       icon: 'event_available'
     },
     {
-      title: 'Choose Your Barber',
-      description: 'Select from our team of professional barbers',
+      title: 'Escolha o seu barbeiror',
+      description: 'Selecione entre nossa equipe de barbeiros profissionais',
       icon: 'person'
     },
     {
-      title: 'Service Selection',
-      description: 'Choose from a variety of barbering services',
+      title: 'Seleção de serviço',
+      description: 'Escolha entre uma variedade de serviços de barbearia',
       icon: 'content_cut'
     },
     {
-      title: 'Manage Appointments',
-      description: 'View, modify or cancel your appointments',
+      title: 'Gerenciar compromissos',
+      description: 'Visualize, modifique ou cancele seus compromissos',
       icon: 'edit_calendar'
     }
   ];
